@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "concurrently": "^10.0.5",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -37,7 +38,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "start:front": "expo start",
+    "start:back": "pnpm --prefix server exec tsx watch src/index.ts",
+    "dev": "concurrently \"pnpm start:back\" \"pnpm start:front\""
   },
   "private": true
 }
